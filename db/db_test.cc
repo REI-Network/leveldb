@@ -277,6 +277,9 @@ class DBTest : public testing::Test {
       case kUncompressed:
         options.compression = kNoCompression;
         break;
+      case kManifestMaxSize:
+        options.manifest_file_max_size = 1024;
+        break;
       default:
         break;
     }
@@ -533,7 +536,7 @@ class DBTest : public testing::Test {
 
  private:
   // Sequence of option configurations to try
-  enum OptionConfig { kDefault, kReuse, kFilter, kUncompressed, kEnd };
+  enum OptionConfig { kDefault, kReuse, kFilter, kUncompressed, kManifestMaxSize, kEnd };
 
   const FilterPolicy* filter_policy_;
   int option_config_;
