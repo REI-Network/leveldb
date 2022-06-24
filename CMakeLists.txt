@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.9)
 # Keep the version below in sync with the one in db.h
-project(leveldb VERSION 1.24.0 LANGUAGES C CXX)
+project(leveldb VERSION 1.25.0 LANGUAGES C CXX)
 
 # C standard can be overridden when this is used as a sub-project.
 if(NOT CMAKE_C_STANDARD)
@@ -281,10 +281,10 @@ endif(HAVE_TCMALLOC)
 find_package(Threads REQUIRED)
 target_link_libraries(leveldb Threads::Threads)
 
-add_executable(leveldbutil
-  "db/leveldbutil.cc"
-)
-target_link_libraries(leveldbutil leveldb)
+# add_executable(leveldbutil
+#   "db/leveldbutil.cc"
+# )
+# target_link_libraries(leveldbutil leveldb)
 
 if(LEVELDB_BUILD_TESTS)
   enable_testing()
